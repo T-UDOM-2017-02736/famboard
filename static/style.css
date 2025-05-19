@@ -1,0 +1,17 @@
+/* Shared navigation bar */
+nav {
+  background-color: #007BFF;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover,
+nav a.active {
+  text-decoration: underline;
+}
