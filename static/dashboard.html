@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    .card h2 {
+      margin-top: 0;
+    }
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    ul li {
+      padding: 6px 0;
+    }
+    .calendar {
+      font-size: 0.95em;
+    }
+    .meal {
+      font-style: italic;
+    }
+    .praise {
+      background: #e7f5e6;
+      border-left: 5px solid #4CAF50;
+      padding: 10px 15px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🏠 Family Dashboard</h1>
+  <div class="dashboard">
+
+    <div class="card">
+      <h2>💼 Chores Overview</h2>
+      <ul>
+        <li>User 1: 3 tasks today</li>
+        <li>User 2: 2 tasks today</li>
+        <li>Total earnings this week: $15.50</li>
+      </ul>
+    </div>
+
+    <div class="card calendar">
+      <h2>📅 This Week's Events</h2>
+      <ul>
+        <li><strong>Mon:</strong> Soccer practice (5pm)</li>
+        <li><strong>Wed:</strong> Dentist appointment (11am)</li>
+        <li><strong>Fri:</strong> Pizza night!</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>🍽️ Meal Plan</h2>
+      <p><strong>Tonight:</strong> <span class="meal">Spaghetti & Garlic Bread</span></p>
+      <p><strong>Tomorrow:</strong> <span class="meal">Grilled Chicken & Veggies</span></p>
+    </div>
+
+    <div class="card">
+      <h2>💰 Goals</h2>
+      <ul>
+        <li>User 1 savings: $8.00 / $20 for toy</li>
+        <li>User 2 goal: $5.00 / $10 for art kit</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>✨ Motivator of the Week</h2>
+      <div class="praise">
+        "User 2 helped clean up without being asked. Amazing job!"
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

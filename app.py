@@ -22,6 +22,10 @@ def charlotte():
 def parent():
     return send_from_directory('static', 'parent.html')
 
+@app.route('/dashboard')
+def dashboard():
+    return send_from_directory('static', 'dashboard.html')
+
 # ✅ API route: Get chores for a child
 @app.route('/api/chores/<child>')
 def get_chores(child):
