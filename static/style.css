@@ -15,3 +15,86 @@ nav a:hover,
 nav a.active {
   text-decoration: underline;
 }
+
+/* Dashboard layout */
+body {
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.dashboard {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 6px 0;
+}
+
+.calendar {
+  font-size: 0.95em;
+}
+
+.meal {
+  font-style: italic;
+}
+
+.praise {
+  background: #e7f5e6;
+  border-left: 5px solid #4CAF50;
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.chore-scroll {
+  max-height: 165px;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-top: 10px
+}
+
+.chore-scroll p {
+  margin: 10px 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 6px;
+}
+
+#quoteCard blockquote {
+  font-style: italic;
+  margin: 10px 0;
+  padding-left: 20px;
+  border-left: 4px solid #007BFF;
+}
+
+#quoteCard footer {
+  color: #333;
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+}

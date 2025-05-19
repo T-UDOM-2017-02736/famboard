@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tyler's Chore Board</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Chore Page</title>
+  <link rel="stylesheet" href="/static/style.css">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #e6f7ff;
+      background: #eef6ff;
       color: #333;
       padding: 30px;
       max-width: 600px;
@@ -28,20 +28,20 @@
       justify-content: space-between;
       align-items: center;
       background: #ffffff;
-      border: 2px solid #b3e5fc;
+      border: 2px solid #b3dafe;
       border-radius: 10px;
       padding: 15px;
       margin-bottom: 15px;
     }
     .chore.done {
-      background: #d9fdd3;
+      background: #d8fbd8;
       text-decoration: line-through;
       opacity: 0.7;
     }
     .chore button {
       padding: 8px 12px;
       border: none;
-      background: #4CAF50;
+      background: #28a745;
       color: white;
       border-radius: 6px;
       cursor: pointer;
@@ -64,15 +64,12 @@
   </style>
 </head>
 <body>
-
   <nav>
     <a href="/dashboard">Dashboard</a>
-    <a href="/tyler" class="active">Tyler</a>
-    <a href="/charlotte">Charlotte</a>
     <a href="/parent">Parent</a>
   </nav>
 
-  <h1>🏠 Tyler's Chores</h1>
+  <h1 id="userHeader">Loading...</h1>
   <div class="earnings">💰 Total Earned: $<span id="totalEarned">0.00</span></div>
 
   <div id="choreList"></div>
@@ -80,11 +77,17 @@
   <button class="reset-btn" onclick="resetChores()">🔄 Reset Completed Tasks</button>
 
 <script>
-  const STORAGE_KEY = "tylerChores";
-  const API_URL = "/api/chores/tyler";
+  const userId = new URLSearchParams(window.location.search).get('id');
+  const STORAGE_KEY = `userChores_${userId}`;
+
+  async function fetchUserName() {
+    const res = await fetch(`/api/users/${userId}`);
+    const data = await res.json();
+    document.getElementById("userHeader").textContent = `🏠 ${data.name}'s Chores`;
+  }
 
   async function fetchChores() {
-    const response = await fetch(API_URL);
+    const response = await fetch(`/api/chores/${userId}`);
     return await response.json();
   }
 
@@ -121,7 +124,7 @@
       button.addEventListener("click", () => {
         doneIds.push(chore.id);
         saveChoreStatus(doneIds);
-        updateDisplay(); // re-render
+        updateDisplay();
       });
 
       choreList.appendChild(div);
@@ -140,8 +143,8 @@
     renderChores(chores);
   }
 
+  fetchUserName();
   updateDisplay();
 </script>
-
 </body>
 </html>
