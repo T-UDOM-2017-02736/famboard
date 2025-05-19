@@ -1,0 +1,6 @@
+__pychache__/
+*.db
+*.pid
+*.log
+*.pyc
+*.env

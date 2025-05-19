@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tyler's Chore Board</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e6f7ff;
+      color: #333;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+    }
+    .earnings {
+      text-align: center;
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+    .chore {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 2px solid #b3e5fc;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .chore.done {
+      background: #d9fdd3;
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+    .chore button {
+      padding: 8px 12px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .chore button:disabled {
+      background: #888;
+      cursor: default;
+    }
+    .reset-btn {
+      display: block;
+      margin: 30px auto 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background: #ff6b6b;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🏠 Tyler's Chores</h1>
+  <div class="earnings">💰 Total Earned: $<span id="totalEarned">0.00</span></div>
+
+  <div id="choreList"></div>
+
+  <button class="reset-btn" onclick="resetChores()">🔄 Reset Completed Tasks</button>
+
+<script>
+  const STORAGE_KEY = "tylerChores";
+  const API_URL = "/api/chores/tyler";
+
+  async function fetchChores() {
+    const response = await fetch(API_URL);
+    return await response.json();
+  }
+
+  function loadChoreStatus() {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  }
+
+  function saveChoreStatus(doneIds) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(doneIds));
+  }
+
+  function calculateTotal(doneIds, chores) {
+    return chores
+      .filter(chore => doneIds.includes(chore.id))
+      .reduce((total, chore) => total + chore.reward, 0)
+      .toFixed(2);
+  }
+
+  function renderChores(chores) {
+    const choreList = document.getElementById("choreList");
+    const doneIds = loadChoreStatus();
+    choreList.innerHTML = "";
+
+    chores.forEach(chore => {
+      const div = document.createElement("div");
+      div.className = "chore" + (doneIds.includes(chore.id) ? " done" : "");
+
+      div.innerHTML = `
+        <span>${chore.title} - $${chore.reward.toFixed(2)}</span>
+        <button ${doneIds.includes(chore.id) ? "disabled" : ""}>Mark Done</button>
+      `;
+
+      const button = div.querySelector("button");
+      button.addEventListener("click", () => {
+        doneIds.push(chore.id);
+        saveChoreStatus(doneIds);
+        updateDisplay(); // re-render
+      });
+
+      choreList.appendChild(div);
+    });
+
+    document.getElementById("totalEarned").textContent = calculateTotal(doneIds, chores);
+  }
+
+  function resetChores() {
+    localStorage.removeItem(STORAGE_KEY);
+    updateDisplay();
+  }
+
+  async function updateDisplay() {
+    const chores = await fetchChores();
+    renderChores(chores);
+  }
+
+  updateDisplay();
+</script>
+
+</body>
+</html>
