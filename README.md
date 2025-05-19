@@ -31,7 +31,8 @@ A modular, web-based household dashboard built with Flask and SQLite. Designed t
 - SQLite3
 - HTML/CSS (static front-end)
 
-Runs fast on a Raspberry Pi (tested on Pi 4 with <500MB RAM usage).
+✅ Runs smoothly on low-spec devices like Raspberry Pi Zero W Rev 1.1
+🔍 Optimized for lightweight performance with Flask + SQLite
 
 ---
 
